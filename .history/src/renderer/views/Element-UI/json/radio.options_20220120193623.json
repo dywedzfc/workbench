@@ -1,0 +1,113 @@
+{
+  "name": "radio",
+  "el": ["radio"],
+  "default": [{ "state": "radio" }],
+  "data": [
+    {
+      "name": "attributes",
+      "title": "基础属性",
+      "type": "base",
+      "state": "radio"
+    },
+    {
+      "name": "radioAttributes",
+      "title": "Radio 属性",
+      "type": "attributes",
+      "state": "radio"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "id",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签id"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签class"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签提示"
+    },
+    {
+      "name": "style",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签样式"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "inputType": "input",
+      "default": "连接",
+      "directions": "文字"
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "inputType": "select",
+      "default": "",
+      "options": ["_blank"],
+      "directions": "跳转方案"
+    }
+  ],
+  "radioAttributes": [
+    {
+      "name": "value / v-model",
+      "type": "string / number / boolean",
+      "inputType": "input",
+      "default": "",
+      "directions": "绑定值"
+    },
+    {
+      "name": "label",
+      "type": "string / number / boolean",
+      "inputType": "input",
+      "default": "",
+      "directions": "Radio 的 value"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否禁用"
+    },
+    {
+      "name": "border",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否显示边框"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "inputType": "icon-select",
+      "default": "",
+      "options": ["medium", "small", "mini"],
+      "directions": "Radio 的尺寸，仅在 border 为真时有效"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "原生 name 属性"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "alert",
+  "el": ["alert"],
+  "structure": [{ "state": "alert" }],
+  "path": []
+}

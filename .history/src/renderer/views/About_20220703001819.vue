@@ -1,0 +1,98 @@
+<template>
+  <page title="关于" :back="false">
+    <div class="template-wrapper">
+      <logo size="16vw" />
+      <h2 class="header">关于</h2>
+      <div class="version">版本：{{ version }}</div>
+      <el-timeline :reverse="false">
+        <el-timeline-item v-for="item in timeline" :key="item.version" :timestamp="item.timestamp">
+          {{ item.content }}
+        </el-timeline-item>
+      </el-timeline>
+      <!-- <div class="datetime-box">
+        <div class="date">{{ formatterDate }}</div>
+        <div class="time">{{ formatterTime }}</div>
+      </div>
+      <img class="logo" alt="Work Bench logo" src="../assets/image/logo.png" /> -->
+    </div>
+  </page>
+</template>
+
+<script>
+import Page from 'components/basic/Page.vue'
+import Logo from 'components/Logo.vue'
+import { getDateTime } from 'util'
+
+export default {
+  name: 'About',
+  components: { Page, Logo },
+  data() {
+    return { datetime: '', times: { datetime: null }, timeline: [] }
+  },
+  computed: {
+    version() {
+      return require('../../../package.json').version
+    },
+  },
+  mounted() {
+    this.timeline = [
+      {
+        version: '0.4.93',
+        detail: ['添加:快捷菜单,日报添加跳转当月功能;', '修改:UI调整;'],
+      },
+      {
+        version: '0.4.71',
+        detail: [
+          '添加:绘制logo,设置模块,生成初始化文件,日报添加重复过滤,月报添加任务数,项目列表(添加表格,项目列表搜索高亮),回收站表格添加分页;',
+          '修改:系统图标,About布局,日报简称展示;',
+        ],
+      },
+      {
+        version: '0.4.46',
+        detail: [
+          '添加:搜索文字高亮,日报添加简称搜索,月报添加简称搜索,年份和月份控件,多单词过滤查询,项目文件列表多单词过滤查询;',
+          '修改:热键,日报卡片标题,月报卡片标题,添加日报优化;',
+        ],
+      },
+      {
+        version: '0.4.40',
+        detail: ['添加:日报项目列表排序,日报快捷提交;', '删除:backspace键的操作;'],
+      },
+      {
+        version: '0.4.12',
+        detail: ['添加:日报提交任务列表按长度排序;', '修改:日报添加功能,日报任务标题,任务框;'],
+      },
+      {
+        version: '0.3.6',
+        detail: [
+          '添加:整理每月任务,整理每年任务,自动判断空行清除,回车键快速创建项目;',
+          '修改:日报存储数据,回收站已解决删除后存在未完全删除的情况;',
+        ],
+      },
+    ]
+    this.getDateTime()
+  },
+  methods: {
+    getDateTime() {
+      this.datetime = getDateTime(new Date())
+      if (this.times.datetime) clearTimeout(this.times.datetime)
+      this.times.datetime = setTimeout(this.getDateTime, 1000)
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.template-wrapper {
+  padding: 20px;
+  text-align: center;
+
+  &::v-deep .logo-box {
+    margin: 0 auto;
+  }
+  .header {
+    font-size: 32px;
+    line-height: 1.5;
+  }
+}
+</style>

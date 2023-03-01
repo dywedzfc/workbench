@@ -1,0 +1,25 @@
+import fs from 'fs'
+import _ from 'lodash'
+import Path from 'path'
+// import { createFile } from './index'
+import { CONFIG_PATH, SHORTCUT_MENU_FILE_NAME, baseURL, createFile } from '../util'
+import { initFolder } from './index'
+
+// TODO 获取项目信息
+export function getProjectFolder() {
+  initFolder(CONFIG_PATH)
+  const { path } = createFile(SHORTCUT_MENU_FILE_NAME, null, {
+    data: [
+      { id: 1, title: '日报', icon: 'el-icon-tickets', href: '/daily' },
+      { id: 2, title: '月报', icon: 'el-icon-date', href: '/monthly' },
+      { id: 3, title: '项目', icon: 'el-icon-folder', href: '/jkzsl/list' },
+    ],
+    count: 0,
+  })
+  try {
+    let fileInfo = fs.readFileSync(path, 'utf8')
+    return JSON.parse(fileInfo.toString())
+  } catch (error) {
+    return { data: [], count: 0, error }
+  }
+}

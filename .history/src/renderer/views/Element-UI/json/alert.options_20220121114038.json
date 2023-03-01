@@ -1,0 +1,118 @@
+{
+  "name": "input",
+  "el": ["input", "input-group", "input-button"],
+  "default": [{ "state": "input-group", "children": [{ "state": "input" }, { "state": "input" }] }],
+  "data": [
+    { "name": "attributes", "title": "基础属性", "type": "base", "state": "input" },
+    { "name": "inputAttributes", "title": "input 属性", "type": "attributes", "state": "input" }
+  ],
+  "attributes": [
+    {
+      "name": "id",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签id"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签class"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签提示"
+    },
+    {
+      "name": "style",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签样式"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "inputType": "input",
+      "default": "备选项",
+      "directions": "文字"
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "inputType": "select",
+      "default": "",
+      "options": ["_blank"],
+      "directions": "跳转方案"
+    }
+  ],
+  "inputAttributes": [
+    {
+      "name": "title",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "标题"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "inputType": "select",
+      "default": "info",
+      "options": ["success", "warning", "info", "error"],
+      "directions": "主题"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "辅助性文字。也可通过默认 slot 传入"
+    },
+    {
+      "name": "closable",
+      "type": "boolean",
+      "inputType": "input",
+      "default": true,
+      "directions": "是否可关闭"
+    },
+    {
+      "name": "center",
+      "type": "boolean",
+      "inputType": "input",
+      "default": true,
+      "directions": "文字是否居中"
+    },
+    {
+      "name": "close-text",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "关闭按钮自定义文本"
+    },
+    {
+      "name": "show-icon",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否显示图标"
+    },
+    {
+      "name": "effect",
+      "type": "string",
+      "inputType": "select",
+      "default": "light",
+      "options": ["light", "dark"],
+      "directions": "选择提供的主题"
+    }
+  ]
+}

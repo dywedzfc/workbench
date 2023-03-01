@@ -1,0 +1,664 @@
+@import "./mixin";
+
+$theme-color: #409eff;
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+
+@mixin default-button($color) {
+  color: $color;
+  border-color: transparentize($color, 0.7);
+  background-color: transparentize($color, 0.9);
+}
+@mixin primary-button($color) {
+  background-color: $color;
+  border-color: $color;
+
+  &:focus, &:hover /**/ {
+    color: #ffffff;
+    background-color: transparentize($color, 0.2);
+    border-color: transparentize($color, 0.2);
+  }
+
+  &.is-disabled {
+    &, &:active, &:focus, &:hover /**/ {
+      background-color: transparentize($color, 0.6);
+      border-color: transparentize($color, 0.9);
+    }
+  }
+}
+
+@mixin theme-logo($type) {
+  .logo-button::before {
+    @if $type == dark {
+      background-image: url("~assets/image/logo-w.png");
+    } @else {
+      background-image: url("~assets/image/logo.png");
+    }
+  }
+}
+@mixin layout-color($type) {
+  .layout {
+    &-left {
+      @if $type == dark {
+        background-color: #1f1f1f;
+      } @else {
+        background-color: #eeeeee;
+      }
+    }
+    &-body {
+      @if $type == dark {
+        background-color: #151515;
+      } @else {
+        background-color: #ffffff;
+      }
+    }
+  }
+  .logo-button::before {
+    @if $type == dark {
+      background-image: url("~assets/image/logo-w.png");
+    } @else {
+      background-image: url("~assets/image/logo.png");
+    }
+  }
+}
+@mixin accent-color($color) {
+  // 按钮
+  &, ~ .el-message-box__wrapper /**/ {
+    .el-button--default {
+      &:focus, &:hover /**/ {
+        @include default-button($color);
+      }
+    }
+    .el-button--primary {
+      @include primary-button($color);
+    }
+    .el-button--text {
+      color: $color;
+
+      &:hover, &:active /**/ {
+        color: transparentize($color, 0.4);
+      }
+    }
+  }
+  .todo-tool-item.edit,
+  .search-button.el-button--primary {
+    @include primary-button($color);
+    color: #ffffff;
+  }
+
+  .button-drawer .query {
+    box-shadow: 0 0 6px $color;
+  }
+  ~ .el-message-box__wrapper .el-message-box__headerbtn {
+    &:focus, &:hover /**/ {
+      .el-message-box__close {
+        color: $color;
+      }
+    }
+  }
+
+  // 输入框
+  .el-textarea__inner:focus, .el-textarea__inner:hover,
+  .el-select .el-input.is-focus .el-input__inner, .el-select:hover .el-input__inner,
+  .el-input.is-active .el-input__inner, .el-input__inner:focus, .el-input__inner:hover /**/ {
+    border-color: $color;
+  }
+  ~ .el-select-dropdown {
+    .el-select-dropdown__item.selected {
+      color: $color;
+    }
+    .el-select-dropdown__item.hover, .el-select-dropdown__item:hover /**/ {
+      background-color: transparentize($color, 0.95);
+    }
+  }
+  ~ .el-picker-panel {
+    .el-date-picker__header-label {
+      &.active, &:hover /**/ {
+        color: $color;
+      }
+    }
+    .el-picker-panel__icon-btn:hover {
+      color: $color;
+    }
+    .el-year-table td, .el-month-table td /**/ {
+      .cell:hover, &.today .cell, &.current:not(.disabled) .cell /**/ {
+        color: $color;
+      }
+    }
+  }
+  // 单选按钮
+  .el-radio__inner:hover {
+    border-color: $color;
+  }
+  .el-radio__input.is-checked {
+    .el-radio__inner {
+      border-color: $color;
+      background-color: $color;
+    }
+    + .el-radio__label {
+      color: $color;
+    }
+  }
+  // 开关
+  .el-switch.is-checked .el-switch__core {
+    border-color: $color;
+    background-color: $color;
+  }
+
+  // 滑块
+  .el-slider {
+    &__bar {
+      background-color: $color;
+    }
+    &__button {
+      border-color: $color;
+    }
+  }
+
+  // 表格
+  .el-table {
+    &--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+      background-color: transparentize($color, 0.95);
+    }
+    &--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+      background-color: transparentize($color, 0.98);
+    }
+  }
+  // 分页
+  .el-pagination.is-background {
+    .el-pager li:not(.disabled) {
+      &:hover {
+        color: $color;
+      }
+      &.active {
+        background-color: $color;
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  // 弹出框
+  ~ .el-popover .el-dropdown-menu__item {
+    &:focus, &:not(.is-disabled):hover /**/ {
+      background-color: transparentize($color, 0.8);
+      color: $color;
+    }
+  }
+  // 气泡
+  ~ .el-tooltip__popper {
+    &.is-dark {
+      background: $color;
+    }
+    &.is-light {
+      border: 1px solid $color;
+
+      &[x-placement^="top"] .popper__arrow {
+        border-top-color: $color;
+      }
+    }
+    &[x-placement^="top"] .popper__arrow {
+      &, &::after /**/ {
+        border-top-color: $color;
+      }
+    }
+  }
+  .el-timeline-item {
+    &__tail {
+      border-left-color: $color;
+    }
+    &__node {
+      background-color: $color;
+    }
+  }
+
+  // 菜单
+  .nav-wrapper .link, .nav-footer .link /**/ {
+    color: $color;
+
+    &:hover, &.active /**/ {
+      background-color: $color;
+      color: #ffffff;
+    }
+    &::before {
+      background-color: $color;
+    }
+  }
+  .show .hot-key {
+    color: transparentize($color, 0.7);
+  }
+  // 搜索框
+  .search-bar .search {
+    &-input {
+      .el-icon-search {
+        color: $color;
+      }
+      .el-input__inner {
+        border-color: $color;
+      }
+    }
+    &-button {
+      border-color: $color;
+      background-color: $color;
+      &:hover {
+        border-color: transparentize($color, 0.15);
+        background-color: transparentize($color, 0.15);
+      }
+    }
+  }
+  // 标签
+  .group-item {
+    color: $color;
+
+    &:hover {
+      background-color: $color;
+
+      .title {
+        color: $color;
+      }
+    }
+  }
+  // 计数
+  .task-count {
+    background-color: $color;
+  }
+  // element-ui icon
+  .icon-box:hover {
+    color: $color;
+    border-color: $color;
+    background-color: transparentize($color, 0.9);
+  }
+  .radio-theme .el-radio__input.is-checked::before {
+    border-right-color: $color;
+    border-bottom-color: $color;
+  }
+}
+
+#app.light {
+  color: #333333;
+  background-color: #ffffff;
+}
+.light {
+  &.gray {
+    @include accent-color(#222222);
+
+    .show .link:hover .hot-key {
+      color: transparentize(#ffffff, 0.7);
+    }
+  }
+  @include theme-logo(light);
+  @include layout-color(light);
+  .page-button:hover {
+    background-color: #cccccc;
+  }
+  .panel-header {
+    border-bottom: 1px solid #eeeeee;
+  }
+  .datetime-box {
+    text-shadow: 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 4px #000000,
+      0 0 6px #000000;
+  }
+  .dialog-model {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .group-item {
+    background-color: transparentize(#eeeeee, 0.6);
+  }
+  .radio-gray .el-radio__inner {
+    @include radio-color(#222222);
+  }
+  .card {
+    &-item {
+      background-color: #f5f8f7;
+    }
+    &-body {
+      background-color: #fefefe;
+    }
+  }
+  .task {
+    &-box {
+      &::after {
+        border-top: 1px solid #eeeeee;
+      }
+      &:nth-child(2n)::before {
+        border-left: 1px solid #eeeeee;
+      }
+    }
+    &-title {
+      border-bottom: 1px solid #eeeeee;
+    }
+    &-word {
+      &.hover {
+        background-color: #eeeeee;
+      }
+    }
+  }
+  .todo-list {
+    &-body {
+      border: 1px solid #eeeeee;
+    }
+    &-item {
+      border: 1px solid #eeeeee;
+      background-color: rgba(238, 238, 238, 0.3);
+    }
+  }
+  .timeline-wrapper .el-timeline-item__timestamp {
+    color: #333333;
+  }
+
+  .select-palace .el-input__prefix {
+    background-color: #ffffff;
+    color: #333333;
+  }
+  .search-input .el-input__inner {
+    color: #000000;
+  }
+  .dialog-drawer {
+    background-color: #ffffff;
+  }
+}
+
+@mixin element-theme-color {
+  .el-radio,
+  .el-table thead,
+  .el-input__inner,
+  .el-textarea__inner,
+  .select-palace .el-input__prefix,
+  .el-form-item__label,
+  .el-timeline-item__content,
+  .timeline-wrapper .el-timeline-item__timestamp,
+  .el-button.el-button--default,
+  ~ .el-popper .el-month-table td .cell,
+  ~ .el-popper .el-select-dropdown__item,
+  ~ .el-message-box__wrapper .el-button--default {
+    color: #cccccc;
+  }
+
+  ~ .el-popper .el-select-group__wrap:not(:last-of-type)::after {
+    background: #3f3f3f;
+  }
+
+  .el-input__inner,
+  .el-textarea__inner,
+  .el-button.el-button--default,
+  ~ .el-message-box__wrapper .el-button--default {
+    background-color: #1f1f1f;
+  }
+
+  .el-input__inner,
+  .el-textarea__inner,
+  .el-button.el-button--default {
+    border-color: #2f2f2f;
+  }
+  .el-input__inner,
+  .el-textarea__inner {
+    &::placeholder {
+      color: #555555;
+    }
+  }
+  .el-input.is-disabled .el-input__inner {
+    border-color: #1f1f1f;
+    background-color: #3c3c3b;
+    color: #4f4c44;
+  }
+  .el-input-group__append,
+  .el-input-group__prepend {
+    border-color: transparent;
+    background-color: transparent;
+  }
+  .select-palace .el-input__prefix {
+    background-color: #1f1f1f;
+  }
+  .search-input .el-input__inner {
+    background-color: #1f1f1f;
+    color: #ffffff;
+  }
+  .el-radio__inner {
+    background-color: #1f1f1f;
+  }
+  .el-switch__core {
+    border-color: #34302a;
+    border-color: #2f2f2f;
+    background-color: #34302a;
+    background-color: #2f2f2f;
+
+    &:after {
+      background-color: #151515;
+    }
+  }
+  .el-slider {
+    &__runway {
+      background-color: #1f1f1f;
+    }
+    &__button {
+      background-color: #151515;
+    }
+  }
+  .el-table {
+    color: #ffffff;
+
+    &--border::after, &--group::after, &::before /**/ {
+      background-color: #2f2f2f;
+    }
+    &, &.el-table__expanded-cell /**/ {
+      border-color: #2f2f2f;
+      background-color: #1f1f1f;
+    }
+    tr {
+      background-color: #1f1f1f;
+    }
+    th.el-table__cell {
+      background-color: #1f1f1f;
+    }
+    td.el-table__cell,
+    th.el-table__cell.is-leaf {
+      border-bottom-color: #2f2f2f;
+    }
+    &--border .el-table__cell,
+    &__body-wrapper .el-table--border.is-scrolling-left ~ .el-table__fixed {
+      border-right-color: #2f2f2f;
+    }
+  }
+  .el-pagination.is-background {
+    .btn-next,
+    .btn-prev,
+    .el-pager li {
+      background-color: #1f1f1f;
+      color: #cccccc;
+    }
+    .btn-next.disabled,
+    .btn-next:disabled,
+    .btn-prev.disabled,
+    .btn-prev:disabled,
+    .el-pager li.disabled {
+      background-color: #3c3c3b;
+      color: #4f4c44;
+    }
+  }
+  .dialog-drawer {
+    background-color: #151515;
+  }
+}
+#app.dark {
+  color: #ffffff;
+  background-color: #151515;
+
+  ~ .el-popper {
+    border-color: #2f2f2f;
+    background-color: #1f1f1f;
+
+    .el-popover__title,
+    .el-dropdown-menu__item {
+      color: #ffffff;
+    }
+    .el-select-group__title {
+      color: #666666;
+    }
+    .el-dropdown-menu__item--divided {
+      border-top-color: #2f2f2f;
+      &:before {
+        background-color: #1f1f1f;
+      }
+    }
+    &.el-popper[x-placement^="top"] .popper__arrow {
+      border-top-color: #2f2f2f;
+
+      &::after {
+        border-top-color: #1f1f1f;
+      }
+    }
+    // 日历
+    .el-date-picker__header--bordered {
+      border-bottom-color: #3f3f3f;
+    }
+    // .el-popper[x-placement^=bottom] .popper__arrow::after
+    &.el-popper[x-placement^="bottom"] .popper__arrow {
+      border-bottom-color: #2f2f2f;
+
+      &::after {
+        border-bottom-color: #1f1f1f;
+      }
+    }
+    .el-picker-panel__icon-btn {
+      color: #cccccc;
+    }
+    .el-date-picker__header-label {
+      color: #ffffff;
+    }
+  }
+  ~ .el-message-box__wrapper {
+    .el-message-box {
+      border-color: #1f1f1f;
+      background-color: #151515;
+      &__title {
+        color: #ffffff;
+      }
+      &__content {
+        color: #cccccc;
+      }
+    }
+  }
+}
+.dark {
+  ::-webkit-scrollbar {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #2f2f2f;
+  }
+
+  &.gray {
+    @include accent-color(#ffffff);
+
+    .el-button,
+    .el-button--primary:hover,
+    .search-button.el-button--primary,
+    .task-count,
+    .group-item:hover,
+    .todo-tool-item.edit,
+    .nav-wrapper .link.active,
+    .nav-wrapper .link:hover,
+    .nav-footer .link.active,
+    .nav-footer .link:hover,
+    .el-pagination.is-background .el-pager li:not(.disabled).active,
+    .el-pagination.is-background .el-pager li:not(.disabled).active:hover {
+      color: #333333;
+    }
+
+    .el-button--text,
+    .el-button--text:hover {
+      color: #ffffff;
+    }
+
+    // 气泡
+    ~ .el-tooltip__popper {
+      &.is-dark {
+        background-color: #1f1f1f;
+      }
+      &[x-placement^="top"] .popper__arrow,
+      &[x-placement^="top"] .popper__arrow::after {
+        border-top-color: #1f1f1f;
+      }
+    }
+  }
+
+  @include theme-logo(dark);
+  @include layout-color(dark);
+
+  .card-item,
+  .group-item,
+  .dialog-box,
+  .timeline-box,
+  .todo-list-body,
+  .page-button:hover {
+    background-color: #1f1f1f;
+  }
+  .panel-header {
+    border-bottom: 1px solid #2f2f2f;
+  }
+  .datetime-box {
+    text-shadow: 0 0 2px #000000, 0 0 2px #000000, 0 0 2px #000000, 0 0 2px #000000, 0 0 2px #000000, 0 0 4px #ffffff,
+      0 0 6px #ffffff;
+  }
+  .dialog-model {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .radio-gray .el-radio__inner {
+    @include radio-color(#ffffff);
+  }
+  .card-body {
+    background-color: #252525;
+  }
+  .task {
+    &-box {
+      &::after {
+        border-top: 1px solid #3f3f3f;
+      }
+      &:nth-child(2n)::before {
+        border-left: 1px solid #3f3f3f;
+      }
+    }
+    &-title {
+      border-bottom: 1px solid #3f3f3f;
+    }
+    &-word {
+      &.hover {
+        background-color: #2f2f2f;
+      }
+    }
+  }
+  .todo-list {
+    &-body {
+      border: 1px solid #2f2f2f;
+    }
+    &-item {
+      border: 1px solid #2f2f2f;
+      background-color: #2f2f2f;
+    }
+  }
+
+  @include element-theme-color;
+}
+
+.blue {
+  @include accent-color(#307cf7);
+}
+.purple {
+  @include accent-color(#894591);
+}
+.pink {
+  @include accent-color(#e45d9c);
+}
+.red {
+  @include accent-color(#cf4745);
+}
+.orange {
+  @include accent-color(#e9873b);
+}
+.yellow {
+  @include accent-color(#f7c84e);
+}
+.green {
+  @include accent-color(#79b756);
+}

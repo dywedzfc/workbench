@@ -1,0 +1,12 @@
+{
+  "rowAttributes": [
+    { "name": "gutter", "type": "number", "default": 0, "options": [{}], "directions": "栅格间隔" },
+    {
+      "name": "type",
+      "type": "string",
+      "default": "",
+      "options": [{}],
+      "directions": "布局模式，可选 flex，现代浏览器下有效"
+    }
+  ]
+}

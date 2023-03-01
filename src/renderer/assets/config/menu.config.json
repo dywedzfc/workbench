@@ -1,0 +1,80 @@
+{
+  "menu": [
+    { "id": "home", "title": "引导页", "icon": "el-icon-guide", "href": "/", "hotKey": "⌘ + 1" },
+    {
+      "id": "daily",
+      "title": "日报",
+      "icon": "el-icon-tickets",
+      "href": "/daily",
+      "hotKey": "⌘ + 2"
+    },
+    {
+      "id": "monthly",
+      "title": "月报",
+      "icon": "el-icon-date",
+      "href": "/monthly",
+      "hotKey": "⌘ + 3"
+    },
+    {
+      "id": "jkzsl",
+      "title": "项目列表",
+      "icon": "el-icon-folder",
+      "href": "/jkzsl/list",
+      "hotKey": "⌘ + 4"
+    },
+    {
+      "id": "TUI",
+      "title": "小书包",
+      "icon": "el-icon-platform-eleme",
+      "type": "open",
+      "href": "/t-ui"
+    }
+  ],
+  "footMenu": [
+    {
+      "id": "setting",
+      "title": "设置",
+      "icon": "el-icon-setting",
+      "href": "/setting",
+      "hotKey": "⌘ + ,"
+    },
+    { "id": "hsz", "title": "回收站", "icon": "el-icon-delete", "href": "/hsz", "hotKey": "⌘ + D" },
+    {
+      "id": "about",
+      "title": "关于",
+      "icon": "el-icon-warning-outline",
+      "href": "/about",
+      "hotKey": "⌘ + ?"
+    }
+  ],
+  "removeMenu": [
+    { "id": "elementUI", "title": "Element UI", "href": "/element-ui", "hotKey": "⌘ + 5" }
+  ],
+  "initMenuFile": [
+    {
+      "id": 1656736457356,
+      "title": "日报",
+      "icon": "el-icon-tickets",
+      "operate": 0,
+      "href": "/daily"
+    },
+    {
+      "id": 1656736460023,
+      "title": "月报",
+      "icon": "el-icon-date",
+      "operate": 0,
+      "href": "/monthly"
+    },
+    {
+      "id": 1656736461314,
+      "title": "项目",
+      "icon": "el-icon-folder",
+      "operate": 0,
+      "href": "/jkzsl/list"
+    }
+  ],
+  "menuFileItemRemark": {
+    "operate": { "0": "不可操作", "1": "可操作", "remark": "是否可操作" },
+    "hrefType": { "0": "站内链接", "1": "超链接", "remark": "连接类型" }
+  }
+}

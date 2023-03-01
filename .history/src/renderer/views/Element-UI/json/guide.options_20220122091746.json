@@ -1,0 +1,22 @@
+{
+  "name": "guide",
+  "structure": [{ "state": "alert" }],
+  "data": {
+    "layout": {
+      "path": "layout.options.json",
+      "structure": [{ "state": "row", "children": [{ "state": "col" }] }]
+    },
+    "icon": { "path": "icon.options.json" },
+    "button": { "path": "button.options.json", "structure": [{ "state": "button" }] },
+    "link": { "path": "link.options.json", "structure": [{ "state": "link" }] },
+
+    "radio": { "path": "radio.options.json" },
+    "checkbox": { "path": "checkbox.options.json" },
+    "input": { "path": "input.options.json" },
+
+    "alert": { "path": "alert.options.json" },
+
+    "breadcrumb": { "path": "breadcrumb.options.json" },
+    "pageheader": { "path": "pageheader.options.json" }
+  }
+}

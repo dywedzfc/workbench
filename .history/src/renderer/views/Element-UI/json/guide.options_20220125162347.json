@@ -1,0 +1,61 @@
+{
+  "name": "guide",
+  "structure": [{ "state": "alert" }],
+  "data": {
+    "layout": {
+      "path": "layout.options.json",
+      "structure": [{ "state": "row", "children": [{ "state": "col" }] }]
+    },
+    "icon": { "path": "icon.options.json" },
+    "button": { "path": "button.options.json", "structure": [{ "state": "button" }] },
+    "link": { "path": "link.options.json", "structure": [{ "state": "link" }] },
+
+    "radio": {
+      "path": "radio.options.json",
+      "structure": [
+        {
+          "state": "radio-group",
+          "children": [{ "state": "radio" }, { "state": "radio" }]
+        }
+      ]
+    },
+    "checkbox": {
+      "path": "checkbox.options.json",
+      "structure": [
+        {
+          "state": "checkbox-group",
+          "children": [{ "state": "checkbox" }, { "state": "checkbox" }]
+        }
+      ]
+    },
+    "input": { "path": "input.options.json", "structure": [{ "state": "input" }] },
+
+    "alert": { "path": "alert.options.json", "structure": [{ "state": "alert" }] },
+    "message": {
+      "path": "message.options.json",
+      "attached": "button.options.json",
+      "structure": [{ "state": "button" }],
+      "on": { "click": "Message(${props});" }
+    },
+    "messageBox": {
+      "path": "message-box.options.json",
+      "attached": "button.options.json",
+      "structure": [{ "state": "button" }],
+      "on": { "click": "Message(${props});" }
+    },
+    "breadcrumb": {
+      "path": "breadcrumb.options.json",
+      "structure": [
+        {
+          "state": "breadcrumb",
+          "children": [
+            { "state": "breadcrumb-item" },
+            { "state": "breadcrumb-item" },
+            { "state": "breadcrumb-item" }
+          ]
+        }
+      ]
+    },
+    "pageheader": { "path": "pageheader.options.json", "structure": [{ "state": "page-header" }] }
+  }
+}

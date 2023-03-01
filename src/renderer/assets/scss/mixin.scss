@@ -1,0 +1,8 @@
+@mixin radio-color($color) {
+  border-color: $color;
+  background-color: $color;
+
+  &.is-checked {
+    background-color: $color;
+  }
+}

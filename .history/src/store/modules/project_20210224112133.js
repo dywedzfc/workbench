@@ -1,0 +1,34 @@
+// import { getLineOptions } from 'api/shift-info-api'
+import { getProjectFolder, setProjectFolder } from 'assets/script/folder'
+
+const state = {
+  data: [],
+  count: 0
+}
+
+const getters = {
+  projectList: state => state.data
+}
+
+const mutations = {
+  SET_PROJECT_LIST(state, data) {
+    state.data = data
+  }
+}
+
+const actions = {
+  FIND_PROJECT_LIST({ commit }) {
+    const { data, count } = getProjectFolder()
+    // getLineOptions().then(data => {
+    //   commit('SET_LINE_OPTIONS', data)
+    // })
+  }
+}
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
+}

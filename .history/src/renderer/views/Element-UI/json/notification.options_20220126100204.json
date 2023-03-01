@@ -1,0 +1,113 @@
+{
+  "name": "notification",
+  "el": ["notification"],
+  "default": [{ "state": "notification" }],
+  "data": [
+    {
+      "name": "messageBoxAttributes",
+      "title": "Notification 属性",
+      "type": "attributes",
+      "state": "notification"
+    }
+  ],
+  "messageBoxAttributes": [
+    title	标题	string	—	—
+message	说明文字	string/Vue.VNode	—	—
+dangerouslyUseHTMLString	是否将 message 属性作为 HTML 片段处理	boolean	—	false
+type	主题样式，如果不在可选值内将被忽略	string	success/warning/info/error	—
+iconClass	自定义图标的类名。若设置了 type，则 iconClass 会被覆盖	string	—	—
+customClass	自定义类名	string	—	—
+duration	显示时间, 毫秒。设为 0 则不会自动关闭	number	—	4500
+position	自定义弹出位置	string	top-right/top-left/bottom-right/bottom-left	top-right
+showClose	是否显示关闭按钮	boolean	—	true
+onClose	关闭时的回调函数	function	—	—
+onClick	点击 Notification 时的回调函数	function	—	—
+offset	偏移的距离，在同一时刻，所有的 Notification 实例应当具有一个相同的偏移量	number	—	0
+    {
+      "name": "title",
+      "type": "string",
+      "inputType": "input",
+      "default": "标题名称",
+      "directions": "标题"
+    },
+    {
+      "name": "message",
+      "type": "string / VNode",
+      "inputType": "input",
+      "default": "这是一条消息提示",
+      "directions": "说明文字"
+    },
+    {
+      "name": "dangerouslyUseHTMLString",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否将 message 属性作为 HTML 片段处理。"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "inputType": "select",
+      "default": "info",
+      "options": ["success", "warning", "info", "error"],
+      "directions": "主题样式，如果不在可选值内将被忽略。"
+    },
+    {
+      "name": "iconClass",
+      "type": "string",
+      "inputType": "icon-select",
+      "default": "",
+      "directions": "自定义图标的类名。若设置了 type，则 iconClass 会被覆盖。"
+    },
+    {
+      "name": "customClass",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "自定义类名。"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "inputType": "input",
+      "default": 4500,
+      "directions": "显示时间, 毫秒。设为 0 则不会自动关闭。"
+    },
+    {
+      "name": "position",
+      "type": "string",
+      "inputType": "select",
+      "default": "top-right",
+      "options": ["top-right","top-left","bottom-right","bottom-left"],
+      "directions": "自定义弹出位置。"
+    },
+    {
+      "name": "showClose",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": true,
+      "directions": "是否显示关闭按钮。"
+    },
+    {
+      "name": "onClose",
+      "type": "function",
+      "inputType": "textarea",
+      "default": "",
+      "directions": "关闭时的回调函数。"
+    },
+    {
+      "name": "onClick",
+      "type": "function",
+      "inputType": "textarea",
+      "default": "",
+      "directions": "点击 Notification 时的回调函数。"
+    },
+    {
+      "name": "offset",
+      "type": "number",
+      "inputType": "input",
+      "default": 0,
+      "directions": "偏移的距离，在同一时刻，所有的 Notification 实例应当具有一个相同的偏移量。"
+    },
+  ]
+}

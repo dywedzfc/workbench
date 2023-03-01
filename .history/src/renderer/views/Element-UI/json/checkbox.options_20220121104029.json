@@ -1,0 +1,143 @@
+{
+  "name": "checkbox",
+  "el": ["checkbox", "checkbox-group", "checkbox-button"],
+  "default": [
+    { "state": "checkbox-group", "children": [{ "state": "checkbox" }, { "state": "checkbox" }] }
+  ],
+  "data": [
+    {
+      "name": "attributes",
+      "title": "基础属性",
+      "type": "base",
+      "state": "checkbox"
+    },
+    {
+      "name": "checkboxAttributes",
+      "title": "Checkbox 属性",
+      "type": "attributes",
+      "state": "checkbox"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "id",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签id"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签class"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签提示"
+    },
+    {
+      "name": "style",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "value": "",
+      "directions": "标签样式"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "inputType": "input",
+      "default": "备选项",
+      "directions": "文字"
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "inputType": "select",
+      "default": "",
+      "options": ["_blank"],
+      "directions": "跳转方案"
+    }
+  ],
+  "checkboxAttributes": [
+    {
+      "name": "v-model",
+      "type": "string / number / boolean",
+      "inputType": "input",
+      "default": "",
+      "directions": "绑定值"
+    },
+    {
+      "name": "label",
+      "type": "string / number / boolean",
+      "inputType": "input",
+      "default": "",
+      "directions": "选中状态的值（只有在checkbox-group或者绑定对象类型为array时有效）"
+    },
+    {
+      "name": "true-label",
+      "type": "string / number",
+      "inputType": "input",
+      "default": "",
+      "directions": "选中时的值"
+    },
+    {
+      "name": "false-label",
+      "type": "string / number",
+      "inputType": "input",
+      "default": "",
+      "directions": "没有选中时的值"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否禁用"
+    },
+    {
+      "name": "border",
+      "type": "boolean",
+      "inputType": "switch",
+      "default": false,
+      "directions": "是否显示边框"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "inputType": "select",
+      "default": "",
+      "options": ["medium", "small", "mini"],
+      "directions": "Checkbox 的尺寸，仅在 border 为真时有效"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "inputType": "input",
+      "default": "",
+      "directions": "原生 name 属性"
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "inputType": "input",
+      "default": false,
+      "directions": "当前是否勾选"
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "inputType": "input",
+      "default": false,
+      "directions": "设置 indeterminate 状态，只负责样式控制"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<template>
+  <div class="layout">
+    <div class="layout-left">
+      <div id="nav">
+        <router-link v-for="item in menu" :key="item.id" :class="menuActive(item)" :to="item.href">
+          {{ item.title }} <span class="hot-key">{{ item.hotKey }}</span>
+        </router-link>
+      </div>
+    </div>
+    <div class="layout-body">
+      <router-view />
+    </div>
+  </div>
+</template>
+
+<script>
+// import _ from 'lodash'
+
+export default {
+  name: 'App',
+  data() {
+    return { menu: [] }
+  },
+  computed: {},
+  mounted() {},
+  methods: {}
+}
+</script>
+
+<style lang="scss"></style>
