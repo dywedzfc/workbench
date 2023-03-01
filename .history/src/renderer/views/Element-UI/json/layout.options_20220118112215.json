@@ -1,5 +1,0 @@
-{
-  "rowAttributes": [
-    { "name": "gutter", "type": "number", "default": 0, "options": [{}], "directions": "栅格间隔" }
-  ]
-}

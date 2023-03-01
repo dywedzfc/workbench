@@ -1,8 +1,0 @@
-{
-  "name": "alert",
-  "el": ["alert"],
-  "structure": [{ "state": "alert" }],
-  "path": {
-    "alert": "alert.options.json"
-  }
-}

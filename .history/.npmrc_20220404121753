@@ -1,2 +1,0 @@
-ELECTRON_MIRROR=https://registry.npmmirror.com/binary.html?path=electron/
-ELECTRON_BUILDER_BINARIES_MIRROR=https://registry.npmmirror.com/binary.html?path=electron-builder-binaries/
